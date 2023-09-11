@@ -6,13 +6,13 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <title>Task Management App</title>
 </head>
-<body class="bg-gray-200 flex items-center justify-center min-h-screen">
+<body class="bg-gray-200">
 
-    <div class="w-full p-4 max-w-md">
+    <div class="flex flex-col items-center justify-center min-h-screen py-4">
         <header>
             <h1 class="text-2xl font-bold mb-4">Task Management App</h1>
         </header>
-        <main>
+        <main class="p-4 w-full max-w-md">
             <!-- Authentication Section -->
             <section id="authentication" class="mb-4">
                 <button id="loginButton" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Log In</button>
@@ -34,20 +34,21 @@
                 <h2 class="text-lg font-semibold mb-2">Profile</h2>
                 <input type="text" id="usernameInput" placeholder="Username" class="w-full border border-gray-300 rounded px-2 py-1 mb-2">
                 <input type="text" id="bioInput" placeholder="Bio" class="w-full border border-gray-300 rounded px-2 py-1 mb-2">
-                <img id="profilePicture" src="assets/profile.jpg" alt="Profile Picture" class="w-20 h-20 rounded-full object-cover">
+                <img id="profilePic" src="assets/profile.jpg" alt="Profile Picture" class="w-20 h-20 rounded-full object-cover">
                 <button id="updateProfileButton" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">Update Profile</button>
             </section>
             
             <!-- Tasks Section -->
             <section id="tasks">
                 <h2 class="text-lg font-semibold mb-2">Tasks</h2>
-                <ul id="taskList">
+                <ul id="taskList" class="">
                 </ul>
                 <button id="createTaskButton" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Create Task</button>
             </section>
         </main>
+        
     </div>
-    
 
+<script src="index.js"></script>
 </body>
 </html>
