@@ -6,41 +6,47 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <title>Task Management App</title>
 </head>
-<body>
-    <main class="p-4 ">
-        <!-- Authentication Section -->
-        <section id="authentication" class="mb-4">
-            <button id="loginButton" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Log In</button>
-            <button id="logoutButton" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">Log Out</button>
-        </section>
+<body class="bg-gray-200 flex items-center justify-center min-h-screen">
 
-        <!-- Registration Section -->
-        <section id="registration">
-            <h2 class="text-lg font-semibold mb-2">User Registration</h2>
-            <input type="email" id="emailInput" placeholder="Email" class="w-full border border-gray-300 rounded px-2 py-1 mb-2">
-            <input type="password" id="passwordInput" placeholder="Password" class="w-full border border-gray-300 rounded px-2 py-1 mb-2">
-            <input type="file" id="profilePictureInput" class="my-2 p-2 border border-gray-300 rounded w-full"
-            accept="image/*">
-            <button id="registerButton" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">Register</button>
-        </section>
-        
-        <!-- Profile Section -->
-        <section id="profile" class="mb-4">
-            <h2 class="text-lg font-semibold mb-2">Profile</h2>
-            <input type="text" id="usernameInput" placeholder="Username" class="w-full border border-gray-300 rounded px-2 py-1 mb-2">
-            <input type="text" id="bioInput" placeholder="Bio" class="w-full border border-gray-300 rounded px-2 py-1 mb-2">
-            <img id="profilePicture" src="" alt="Profile Picture" class="w-20 h-20 rounded-full object-cover">
-            <button id="updateProfileButton" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">Update Profile</button>
-        </section>
-        
-        <!-- Tasks Section -->
-        <section id="tasks">
-            <h2 class="text-lg font-semibold mb-2">Tasks</h2>
-            <ul id="taskList">
-            </ul>
-            <button id="createTaskButton" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Create Task</button>
-        </section>
-    </main>
+    <div class="w-full p-4 max-w-md">
+        <header>
+            <h1 class="text-2xl font-bold mb-4">Task Management App</h1>
+        </header>
+        <main>
+            <!-- Authentication Section -->
+            <section id="authentication" class="mb-4">
+                <button id="loginButton" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Log In</button>
+                <button id="logoutButton" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">Log Out</button>
+            </section>
+    
+            <!-- Registration Section -->
+            <section id="registration">
+                <h2 class="text-lg font-semibold mb-2">Registration</h2>
+                <input type="email" id="emailInput" placeholder="Email" class="w-full border border-gray-300 rounded px-2 py-1 mb-2">
+                <input type="password" id="passwordInput" placeholder="Password" class="w-full border border-gray-300 rounded px-2 py-1 mb-2">
+                <input type="file" id="profilePictureInput" class="my-2 p-2 border border-gray-300 rounded w-full"
+                accept="image/*">
+                <button id="registerButton" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">Register</button>
+            </section>
+            
+            <!-- Profile Section -->
+            <section id="profile" class="mb-4">
+                <h2 class="text-lg font-semibold mb-2">Profile</h2>
+                <input type="text" id="usernameInput" placeholder="Username" class="w-full border border-gray-300 rounded px-2 py-1 mb-2">
+                <input type="text" id="bioInput" placeholder="Bio" class="w-full border border-gray-300 rounded px-2 py-1 mb-2">
+                <img id="profilePicture" src="assets/profile.jpg" alt="Profile Picture" class="w-20 h-20 rounded-full object-cover">
+                <button id="updateProfileButton" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">Update Profile</button>
+            </section>
+            
+            <!-- Tasks Section -->
+            <section id="tasks">
+                <h2 class="text-lg font-semibold mb-2">Tasks</h2>
+                <ul id="taskList">
+                </ul>
+                <button id="createTaskButton" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Create Task</button>
+            </section>
+        </main>
+    </div>
     
 
 </body>
