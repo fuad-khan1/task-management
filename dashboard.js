@@ -1,4 +1,4 @@
-  // Authentication 
+// Authentication
 const isAuthenticated = localStorage.getItem("authenticated") === "true";
 
 const userId = localStorage.getItem("userId");
@@ -16,6 +16,29 @@ if (!isAuthenticated) {
 }
 document.getElementById("logoutLink").addEventListener("click", () => {
   localStorage.setItem("authenticated", "false");
+});
+
+// Update Profile Form Submission
+const updateProfileForm = document.getElementById("updateProfileForm");
+const nameInput = document.getElementById("name");
+const bioInput = document.getElementById("bio");
+
+nameInput.value = userProfile.name;
+bioInput.value = userProfile.bio;
+
+updateProfileForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const updatedName = nameInput.value;
+  const updatedBio = bioInput.value;
+
+  userProfile.name = updatedName;
+  userProfile.bio = updatedBio;
+
+  localStorage.setItem(userId, JSON.stringify(userProfile));
+
+  alert("Profile updated successfully!");
+
+  userNameElement.textContent = updatedName;
 });
 
 // ///////   Task Form   /////////////////////////////////
