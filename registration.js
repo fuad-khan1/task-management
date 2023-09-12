@@ -20,7 +20,7 @@ document
     const user = { name, email, password };
     registeredUsers.push(user);
     localStorage.setItem("registeredUsers", JSON.stringify(registeredUsers));
+    
 
-    // Redirect to login page after registration
     window.location.href = "login.html";
   });
