@@ -12,6 +12,8 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
   if (user) {
     alert("Login Successful !");
     localStorage.setItem("authenticated", "true");
+    localStorage.setItem("userId", user.id);
+
     window.location.href = "dashboard.html";
   } else {
     alert("Invalid email or password !");

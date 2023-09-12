@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,17 +8,106 @@
     <!--  Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
+
 <body class="bg-gray-100">
-    <div class="min-h-screen flex items-center justify-center">
-        <div class="bg-white p-8 rounded shadow-md max-w-md">
-            <h1 class="text-2xl font-semibold mb-4">Welcome to the Dashboard</h1>
-            <div class="text-center mt-4">
-                <a id="logoutLink" href="index.html" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold px-4 py-2 rounded">
+    <header>
+        <nav class="bg-blue-500 p-4">
+            <div class="container mx-auto flex justify-between items-center">
+                <h1 class="text-2xl text-white font-semibold">Dashboard</h1>
+                <div class="flex items-center">
+                    <div class="text-white flex items-center mr-8">
+                        <img src="assets/profile.jpg" alt="Profile picture" class="w-16 h-16 rounded-full">
+                        <div class="ml-2">
+                            <h3 class="font-semibold" id="userName"></h3>
+                            <p class="">Web developer</p>
+                        </div>
+                    </div>
+                <a id="logoutLink" href="index.html" class="text-white border px-4 py-2 rounded hover:text-blue-600 font-semibold">
                     Logout
                 </a>
             </div>
-        </div>
-    </div>
+
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mx-auto mt-6 w-4/5 md:w-3/5">
+        <section class="bg-white p-8 rounded mb-8 ">
+            <h2 class="text-xl font-semibold mb-4">Update Profile</h2>
+            <form>
+                <div class="mb-4">
+                    <label for="name" class="block text-gray-600">Name:</label>
+                    <input type="text" id="name" name="name" class="border rounded w-full p-2" value="Demo Name">
+                </div>
+                <div class="mb-2">
+                    <label for="bio" class="block text-gray-600">Bio:</label>
+                    <textarea id="bio" name="bio"
+                        class="border rounded w-full p-2">Demo bio</textarea>
+                </div>
+                <button type="submit"
+                    class="bg-blue-500 hover:bg-blue-600 text-white font-semibold px-4 py-2 rounded">Update</button>
+            </form>
+        </section>
+
+                <!-- Create Task Section -->
+        <section class="bg-white p-8 rounded mb-8 ">
+            <h2 class="text-xl font-semibold mb-4">Create Task</h2>
+            <form id="createTaskForm">
+                <div class="mb-4">
+                    <label for="taskTitle" class="block text-gray-600">Task Title:</label>
+                    <input type="text" id="taskTitle" name="taskTitle" class="border rounded w-full p-2">
+                </div>
+                <div class="mb-4">
+                    <label for="taskDescription" class="block text-gray-600">Task Description:</label>
+                    <textarea id="taskDescription" name="taskDescription" class="border rounded w-full p-2"></textarea>
+                </div>
+                <div class="mb-4">
+                    <label for="dueDate" class="block text-gray-600">Due Date:</label>
+                    <input type="date" id="dueDate" name="dueDate">
+                </div>
+                <div class="mb-4">
+                    <label for="priority" class="block text-gray-600">Priority:</label>
+                    <select id="priority" name="priority">
+                        <option value="high">High</option>
+                        <option value="medium">Medium</option>
+                        <option value="low">Low</option>
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <label for="assignee" class="block text-gray-600">Assignee:</label>
+                    <input type="text" id="assignee" name="assignee">
+                </div>
+                <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold px-4 py-2 rounded">Create</button>
+            </form>
+        </section>
+
+        <section class="bg-white p-8 rounded mb-2">
+            <h2 class="text-xl font-semibold mb-4">Task List</h2>
+            <!-- Task Filtering and Sorting Options -->
+            <div class="mb-4">
+                <label for="statusFilter" class="block text-gray-600">Filter by Status:</label>
+                <select id="statusFilter">
+                    <option value="all">All</option>
+                    <option value="completed">Completed</option>
+                    <option value="in-progress">In Progress</option>
+                    <option value="pending">Pending</option>
+                </select>
+            </div>
+            <div class="mb-4">
+                <label for="sortCriteria" class="block text-gray-600">Sort by:</label>
+                <select id="sortCriteria">
+                    <option value="priority">Priority</option>
+                    <option value="dueDate">Due Date</option>
+                </select>
+            </div>
+            <div id="taskList"></div>
+        </section>
+
+       
+    </main>
+
+
     <script src="dashboard.js"></script>
 </body>
+
 </html>
