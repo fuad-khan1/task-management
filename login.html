@@ -3,19 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registration</title>
+    <title>Login</title>
     <!--  Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-100">
     <div class="min-h-screen flex items-center justify-center">
         <div class="bg-white p-8 rounded shadow-md max-w-md">
-            <h1 class="text-2xl font-semibold mb-4">Registration</h1>
-            <form id="registrationForm">
-                <div class="mb-4">
-                    <label for="name" class="block text-gray-700">Name</label>
-                    <input type="text" id="name" class="w-full border rounded px-3 py-2" required>
-                </div>
+            <h1 class="text-2xl font-semibold mb-4">Login</h1>
+            <form id="loginForm">
                 <div class="mb-4">
                     <label for="email" class="block text-gray-700">Email</label>
                     <input type="email" id="email" class="w-full border rounded px-3 py-2" required>
@@ -26,13 +22,14 @@
                 </div>
                 <div class="text-center">
                     <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold px-4 py-2 rounded">
-                        Register
+                        Log In
                     </button>
                 </div>
             </form>
-            <a class="" href="login.html">Already registered? <span class="text-sky-400 underline ">Login</span></a>
+            <a class="" href="index.html">New to here? <span class="text-sky-400 underline ">Register</span></a>
+
         </div>
     </div>
-    <script src="registration.js"></script>
+    <script src="login.js"></script>
 </body>
 </html>
