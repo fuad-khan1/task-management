@@ -1,4 +1,4 @@
-// Authentication
+// Authentication    ////////////////
 const isAuthenticated = localStorage.getItem("authenticated") === "true";
 
 const userId = localStorage.getItem("userId");
@@ -18,7 +18,7 @@ document.getElementById("logoutLink").addEventListener("click", () => {
   localStorage.setItem("authenticated", "false");
 });
 
-// Update Profile Form Submission
+//////// Update Profile Form Submission   ///////////////////////////////////
 const updateProfileForm = document.getElementById("updateProfileForm");
 const nameInput = document.getElementById("name");
 const bioInput = document.getElementById("bio");
@@ -80,13 +80,13 @@ function updateTaskList(tasks) {
   tasks.forEach((task) => {
     const taskItem = document.createElement("div");
     taskItem.className =
-      "mb-4 p-4 border rounded flex justify-between items-center";
+      "border p-2 space-y-2 mb-2";
 
     const taskTitleElement = document.createElement("h3");
-    taskTitleElement.textContent = task.title;
+    taskTitleElement.textContent ="Title: " +task.title;
 
     const taskDescriptionElement = document.createElement("p");
-    taskDescriptionElement.textContent = task.description;
+    taskDescriptionElement.textContent ="Description: "+ task.description;
 
     const dueDateElement = document.createElement("p");
     dueDateElement.textContent = "Due Date: " + task.dueDate;

@@ -19,7 +19,7 @@
                         <img src="assets/profile.jpg" alt="Profile picture" class="w-16 h-16 rounded-full">
                         <div class="ml-2">
                             <h3 class="font-semibold" id="userName"></h3>
-                            <p class="">Web developer</p>
+                            <p>Web developer</p>
                         </div>
                     </div>
                 <a id="logoutLink" href="index.html" class="text-white border px-4 py-2 rounded hover:text-blue-600 font-semibold">
@@ -32,17 +32,19 @@
     </header>
 
     <main class="container mx-auto mt-6 w-4/5 md:w-3/5">
+
+        <!-- Update Profile  -->
         <section class="bg-white p-8 rounded mb-8 ">
             <h2 class="text-xl font-semibold mb-4">Update Profile</h2>
             <form id="updateProfileForm">
                 <div class="mb-4">
                     <label for="name" class="block text-gray-600">Name:</label>
-                    <input type="text" id="name" name="name" class="border rounded w-full p-2" value="Demo Name">
+                    <input type="text" id="name" name="name" class="border rounded w-full p-2" value="Demo Name required">
                 </div>
                 <div class="mb-2">
                     <label for="bio" class="block text-gray-600">Bio:</label>
                     <textarea id="bio" name="bio"
-                        class="border rounded w-full p-2">Demo bio</textarea>
+                        class="border rounded w-full p-2"></textarea>
                 </div>
                 <button type="submit"
                     class="bg-blue-500 hover:bg-blue-600 text-white font-semibold px-4 py-2 rounded">Update</button>
@@ -55,11 +57,11 @@
             <form id="createTaskForm">
                 <div class="mb-4">
                     <label for="taskTitle" class="block text-gray-600">Task Title:</label>
-                    <input type="text" id="taskTitle" name="taskTitle" class="border rounded w-full p-2">
+                    <input type="text" id="taskTitle" name="taskTitle" class="border rounded w-full p-2 required">
                 </div>
                 <div class="mb-4">
                     <label for="taskDescription" class="block text-gray-600">Task Description:</label>
-                    <textarea id="taskDescription" name="taskDescription" class="border rounded w-full p-2"></textarea>
+                    <textarea id="taskDescription" name="taskDescription" class="border rounded w-full p-2 required"></textarea>
                 </div>
                 <div class="mb-4">
                     <label for="dueDate" class="block text-gray-600">Due Date:</label>

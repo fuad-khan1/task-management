@@ -29,6 +29,7 @@ regForm.addEventListener("submit", function (e) {
   localStorage.setItem(user.id, JSON.stringify(userProfile));
 
   localStorage.setItem("registeredUsers", JSON.stringify(registeredUsers));
+  alert("Registration Successfull !");
   regForm.reset();
 
   // window.location.href = "login.html";
