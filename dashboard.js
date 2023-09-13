@@ -73,20 +73,19 @@ createTaskForm.addEventListener("submit", (e) => {
 });
 
 // Function updateTaskList
-function updateTaskList(tasks) {
+function updateTaskList(tasks, index) {
   const taskListDisplay = document.getElementById("taskList");
   taskListDisplay.innerHTML = "";
 
   tasks.forEach((task) => {
     const taskItem = document.createElement("div");
-    taskItem.className =
-      "border p-2 space-y-2 mb-2";
+    taskItem.className = "border p-2 space-y-2 mb-2";
 
     const taskTitleElement = document.createElement("h3");
-    taskTitleElement.textContent ="Title: " +task.title;
+    taskTitleElement.textContent = "Title: " + task.title;
 
     const taskDescriptionElement = document.createElement("p");
-    taskDescriptionElement.textContent ="Description: "+ task.description;
+    taskDescriptionElement.textContent = "Description: " + task.description;
 
     const dueDateElement = document.createElement("p");
     dueDateElement.textContent = "Due Date: " + task.dueDate;
@@ -101,12 +100,24 @@ function updateTaskList(tasks) {
     const taskStatusElement = document.createElement("p");
     taskStatusElement.textContent = "Status: " + task.status;
 
+    // delete a task
+    const deleteTaskButton = document.createElement("button");
+    deleteTaskButton.innerHTML= `Remove Task`
+    deleteTaskButton.className="bg-red-500 text-white py-1 px-1 rounded"
+    deleteTaskButton.addEventListener("click", () => {
+      tasks.splice(index, 1);
+
+      localStorage.setItem("taskList", JSON.stringify(tasks));
+      updateTaskList(tasks);
+    });
+
     taskItem.appendChild(taskTitleElement);
     taskItem.appendChild(taskDescriptionElement);
     taskItem.appendChild(dueDateElement);
     taskItem.appendChild(priorityElement);
     taskItem.appendChild(assigneeElement);
     taskItem.appendChild(taskStatusElement);
+    taskItem.appendChild(deleteTaskButton)
 
     taskListDisplay.appendChild(taskItem);
   });
