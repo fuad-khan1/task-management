@@ -50,7 +50,7 @@ createTaskForm.addEventListener("submit", (e) => {
   const taskDescription =
     createTaskForm.querySelector("#taskDescription").value;
   const dueDate = createTaskForm.querySelector("#dueDate").value;
-  const priority = createTaskForm.querySelector("#priority").value;
+  const priority = createTaskForm.querySelector("#taskPriority").value;
   const assignee = createTaskForm.querySelector("#assignee").value;
 
   // Create a task object

@@ -14,9 +14,22 @@ regForm.addEventListener("submit", function (e) {
   );
   if (isEmailRegistered) {
     alert("Email Already Registered ! Please log in");
+    regForm.reset();
     return;
   }
 
+
+  if (password.length < 5) {
+    alert("Password must be at least 5 characters long.");
+    return;
+  }
+  const passStrength = /^(?=.*[!@#$%^&*()_+{}\[\]:;<>,.?~\\\-|=]).{5,}$/;
+  if (!passStrength.test(password)) {
+    alert("Password must contain at least one special character.");
+    return;
+  }
+
+  
   function generateUniqueId() {
     return Math.random().toString(36).substring(2) + Date.now().toString(36);
   }
@@ -25,11 +38,11 @@ regForm.addEventListener("submit", function (e) {
 
   localStorage.setItem("userId", user.id);
 
-  const userProfile = { name, email };
+  const userProfile = { name, email, bio: "" };
   localStorage.setItem(user.id, JSON.stringify(userProfile));
 
   localStorage.setItem("registeredUsers", JSON.stringify(registeredUsers));
-  alert("Registration Successfull !");
+  alert("Registration Successfull.");
   regForm.reset();
 
   // window.location.href = "login.html";

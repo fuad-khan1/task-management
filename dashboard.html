@@ -39,11 +39,11 @@
             <form id="updateProfileForm">
                 <div class="mb-4">
                     <label for="name" class="block text-gray-600">Name:</label>
-                    <input type="text" id="name" name="name" class="border rounded w-full p-2" value="Demo Name required">
+                    <input type="text" id="name" name="name" class="border rounded w-full p-2" value="Demo Name" required>
                 </div>
                 <div class="mb-2">
                     <label for="bio" class="block text-gray-600">Bio:</label>
-                    <textarea id="bio" name="bio"
+                    <textarea id="bio" name="bio" required
                         class="border rounded w-full p-2"></textarea>
                 </div>
                 <button type="submit"
@@ -57,19 +57,19 @@
             <form id="createTaskForm">
                 <div class="mb-4">
                     <label for="taskTitle" class="block text-gray-600">Task Title:</label>
-                    <input type="text" id="taskTitle" name="taskTitle" class="border rounded w-full p-2 required">
+                    <input type="text" id="taskTitle" name="taskTitle" class="border rounded w-full p-2" required>
                 </div>
                 <div class="mb-4">
                     <label for="taskDescription" class="block text-gray-600">Task Description:</label>
-                    <textarea id="taskDescription" name="taskDescription" class="border rounded w-full p-2 required"></textarea>
+                    <textarea id="taskDescription" name="taskDescription" class="border rounded w-full p-2 " required></textarea>
                 </div>
                 <div class="mb-4">
                     <label for="dueDate" class="block text-gray-600">Due Date:</label>
-                    <input type="date" id="dueDate" name="dueDate">
+                    <input type="date" id="dueDate" name="dueDate" required>
                 </div>
                 <div class="mb-4">
-                    <label for="priority" class="block text-gray-600">Priority:</label>
-                    <select id="priority" name="priority">
+                    <label for="taskPriority" class="block text-gray-600">Priority:</label>
+                    <select id="taskPriority" name="priority">
                         <option value="high">High</option>
                         <option value="medium">Medium</option>
                         <option value="low">Low</option>
@@ -77,7 +77,7 @@
                 </div>
                 <div class="mb-4">
                     <label for="assignee" class="block text-gray-600">Assignee:</label>
-                    <input type="text" id="assignee" name="assignee">
+                    <input type="text" id="assignee" name="assignee" required>
                 </div>
                 <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold px-4 py-2 rounded">Create</button>
             </form>
