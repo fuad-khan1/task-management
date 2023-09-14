@@ -16,6 +16,7 @@ if (!isAuthenticated) {
 }
 document.getElementById("logoutLink").addEventListener("click", () => {
   localStorage.setItem("authenticated", "false");
+  window.location.href = "login.html";
 });
 
 // ---------------------------------------------------------------------------------------- //
@@ -52,7 +53,7 @@ createTaskForm.addEventListener("submit", (e) => {
 });
 
 // Function updateTask-List
-function updateTaskList(tasks, index) {
+function updateTaskList(tasks) {
   const tableBody = document.querySelector("#taskList tbody");
   tableBody.innerHTML = "";
   tasks.forEach((task) => {
@@ -80,7 +81,21 @@ function updateTaskList(tasks, index) {
 
     const statusData = document.createElement("td");
     statusData.innerHTML = task.status;
-    statusData.className = "p-2 border-r";
+    statusData.className = "p-2 border-r cursor-pointer";
+
+    statusData.addEventListener("click", () => {
+      if (task.status === "pending") {
+        task.status = "completed";
+        statusData.innerHTML = "completed";
+        statusData.style.textDecoration = "line-through";
+      } else if (task.status === "completed") {
+        task.status = "pending";
+        statusData.innerHTML = "pending";
+        statusData.style.textDecoration = "";
+      }
+
+      localStorage.setItem("taskList", JSON.stringify(tasks));
+    });
 
     taskRow.appendChild(titleData);
     taskRow.appendChild(descriptionData);

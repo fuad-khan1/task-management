@@ -16,6 +16,8 @@ if (!isAuthenticated) {
 }
 document.getElementById("logoutLink").addEventListener("click", () => {
   localStorage.setItem("authenticated", "false");
+  window.location.href = "login.html";
+
 });
 
 //////// Update Profile Form Submission   ///////////////////////////////////
