@@ -5,7 +5,7 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
 
   const registeredUsers =
     JSON.parse(localStorage.getItem("registeredUsers")) || [];
-  // Check if the email and password match any registered user
+  // Check  email and password matching
   const user = registeredUsers.find(
     (user) => user.email === email && user.password === password
   );
@@ -14,7 +14,7 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
     localStorage.setItem("authenticated", "true");
     localStorage.setItem("userId", user.id);
 
-    window.location.href = "dashboard.html";
+    window.location.href = "tasks.html";
   } else {
     alert("Invalid email or password !");
   }

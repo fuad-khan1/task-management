@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
+    <title>Tasks</title>
     <!--  Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
@@ -13,10 +13,11 @@
     <header>
         <nav class="bg-blue-500 p-4">
             <div class="container mx-auto flex justify-between items-center">
-                <h1 class="text-2xl text-white font-semibold">Dashboard</h1>
+                <h1 class="text-2xl text-white font-semibold">Task</h1>
                 <div class="flex items-center">
                     <div class="text-white flex items-center mr-8">
-                        <img src="assets/profile.jpg" alt="Profile picture" class="w-16 h-16 rounded-full">
+                        <!-- <img src="" id="profilePicNav" alt="Profile picture" class="w-16 h-16 rounded-full"> -->
+                        <a class="" href="profile.html">Profile</a>
                         <div class="ml-2">
                             <h3 class="font-semibold" id="userName"></h3>
                             <p>Web developer</p>
@@ -32,24 +33,6 @@
     </header>
 
     <main class="container mx-auto mt-6 w-4/5 md:w-3/5">
-
-        <!-- Update Profile  -->
-        <section class="bg-white p-8 rounded mb-8 ">
-            <h2 class="text-xl font-semibold mb-4">Update Profile</h2>
-            <form id="updateProfileForm">
-                <div class="mb-4">
-                    <label for="name" class="block text-gray-600">Name:</label>
-                    <input type="text" id="name" name="name" class="border rounded w-full p-2" value="Demo Name" required>
-                </div>
-                <div class="mb-2">
-                    <label for="bio" class="block text-gray-600">Bio:</label>
-                    <textarea id="bio" name="bio" required
-                        class="border rounded w-full p-2"></textarea>
-                </div>
-                <button type="submit"
-                    class="bg-blue-500 hover:bg-blue-600 text-white font-semibold px-4 py-2 rounded">Update</button>
-            </form>
-        </section>
 
                 <!-- Create Task Section -->
         <section class="bg-white p-8 rounded mb-8 ">
@@ -85,7 +68,7 @@
 
         <section class="bg-white p-8 rounded mb-2">
             <h2 class="text-xl font-semibold mb-4">Task List</h2>
-            <!-- Task Filtering and Sorting Options -->
+            <!--  Filtering and Sorting  -->
             <div class="mb-4">
                 <label for="statusFilter" class="block text-gray-600">Filter by Status:</label>
                 <select id="statusFilter">
@@ -109,7 +92,7 @@
     </main>
 
 
-    <script src="dashboard.js"></script>
+    <script src="tasks.js"></script>
 </body>
 
 </html>
