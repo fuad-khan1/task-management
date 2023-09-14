@@ -85,13 +85,11 @@ function updateTaskList(tasks) {
 
     statusData.addEventListener("click", () => {
       if (task.status === "pending") {
-        task.status = "completed";
-        statusData.innerHTML = "completed";
-        statusData.style.textDecoration = "line-through";
-      } else if (task.status === "completed") {
+        task.status = "completed&#x2713";
+        statusData.innerHTML = "completed&#x2713";
+      } else if (task.status === "completed&#x2713") {
         task.status = "pending";
         statusData.innerHTML = "pending";
-        statusData.style.textDecoration = "";
       }
 
       localStorage.setItem("taskList", JSON.stringify(tasks));
