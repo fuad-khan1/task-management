@@ -22,6 +22,9 @@ document.getElementById("logoutLink").addEventListener("click", () => {
 
 // ///////   Task Form   /////////////////////////////////
 const createTaskForm = document.getElementById("createTaskForm");
+
+const initialTaskList = JSON.parse(localStorage.getItem("taskList")) || [];
+
 createTaskForm.addEventListener("submit", (e) => {
   e.preventDefault();
   // Get task data from the form
@@ -42,65 +45,52 @@ createTaskForm.addEventListener("submit", (e) => {
     status: "pending",
   };
 
-  const taskList = JSON.parse(localStorage.getItem("taskList")) || [];
-  taskList.push(task);
-  localStorage.setItem("taskList", JSON.stringify(taskList));
-
+  initialTaskList.push(task);
+  updateTaskList(initialTaskList);
+  localStorage.setItem("taskList", JSON.stringify(initialTaskList));
   createTaskForm.reset();
-
-  updateTaskList(taskList);
 });
 
-// Function updateTaskList
+// Function updateTask-List
 function updateTaskList(tasks, index) {
-  const taskListDisplay = document.getElementById("taskList");
-  taskListDisplay.innerHTML = "";
-
+  const tableBody = document.querySelector("#taskList tbody");
+  tableBody.innerHTML = "";
   tasks.forEach((task) => {
-    const taskItem = document.createElement("div");
-    taskItem.className = "border p-2 space-y-2 mb-2";
+    const taskRow = document.createElement("tr");
+    taskRow.className = "border-b";
 
-    const taskTitleElement = document.createElement("h3");
-    taskTitleElement.textContent = "Title: " + task.title;
+    const titleData = document.createElement("td");
+    titleData.innerHTML = task.title;
+    titleData.className = "p-2  border";
+    const descriptionData = document.createElement("td");
+    descriptionData.innerHTML = task.description;
+    descriptionData.className = "p-2 border-r";
 
-    const taskDescriptionElement = document.createElement("p");
-    taskDescriptionElement.textContent = "Description: " + task.description;
+    const dueDateData = document.createElement("td");
+    dueDateData.innerHTML = task.dueDate;
+    dueDateData.className = "p-2 border-r";
 
-    const dueDateElement = document.createElement("p");
-    dueDateElement.textContent = "Due Date: " + task.dueDate;
+    const priorityData = document.createElement("td");
+    priorityData.innerHTML = task.priority;
+    priorityData.className = "p-2 border-r";
 
-    const priorityElement = document.createElement("p");
-    priorityElement.textContent = "Priority: " + task.priority;
+    const assigneeData = document.createElement("td");
+    assigneeData.innerHTML = task.assignee;
+    assigneeData.className = "p-2 border-r";
 
-    const assigneeElement = document.createElement("p");
-    assigneeElement.textContent = "Assignee: " + task.assignee;
+    const statusData = document.createElement("td");
+    statusData.innerHTML = task.status;
+    statusData.className = "p-2 border-r";
 
-    // Create task status element
-    const taskStatusElement = document.createElement("p");
-    taskStatusElement.textContent = "Status: " + task.status;
+    taskRow.appendChild(titleData);
+    taskRow.appendChild(descriptionData);
+    taskRow.appendChild(dueDateData);
+    taskRow.appendChild(priorityData);
+    taskRow.appendChild(assigneeData);
+    taskRow.appendChild(statusData);
 
-    // delete a task
-    const deleteTaskButton = document.createElement("button");
-    deleteTaskButton.innerHTML = `Remove Task`;
-    deleteTaskButton.className = "bg-red-500 text-white py-1 px-1 rounded";
-    deleteTaskButton.addEventListener("click", () => {
-      tasks.splice(index, 1);
-
-      localStorage.setItem("taskList", JSON.stringify(tasks));
-      updateTaskList(tasks);
-    });
-
-    taskItem.appendChild(taskTitleElement);
-    taskItem.appendChild(taskDescriptionElement);
-    taskItem.appendChild(dueDateElement);
-    taskItem.appendChild(priorityElement);
-    taskItem.appendChild(assigneeElement);
-    taskItem.appendChild(taskStatusElement);
-    taskItem.appendChild(deleteTaskButton);
-
-    taskListDisplay.appendChild(taskItem);
+    tableBody.appendChild(taskRow);
   });
 }
 
-const initialTaskList = JSON.parse(localStorage.getItem("taskList")) || [];
 updateTaskList(initialTaskList);
