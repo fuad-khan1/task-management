@@ -85,9 +85,10 @@ function updateTaskList(tasks) {
 
     statusData.addEventListener("click", () => {
       if (task.status === "pending") {
-        task.status = "completed&#x2713";
-        statusData.innerHTML = "completed&#x2713";
-      } else if (task.status === "completed&#x2713") {
+        task.status = "completed";
+          //  &#x2713 
+        statusData.innerHTML = "completed";
+      } else if (task.status === "completed") {
         task.status = "pending";
         statusData.innerHTML = "pending";
       }
@@ -105,5 +106,36 @@ function updateTaskList(tasks) {
     tableBody.appendChild(taskRow);
   });
 }
+
+  //   sorting & Filtering
+const sortSelect = document.getElementById("sort");
+const statusFilter = document.getElementById("statusFilter");
+
+// sorting
+sortSelect.addEventListener("change", () => {
+  const selectedSort = sortSelect.value;
+  const sortedTaskList = initialTaskList.slice();
+
+  if (selectedSort === "priority") {
+    sortedTaskList.sort((a, b) => a.priority - b.priority);
+  } else if (selectedSort === "dueDate") {
+    sortedTaskList.sort((a, b) => new Date(a.dueDate) - new Date(b.dueDate));
+  }
+  updateTaskList(sortedTaskList);
+});
+
+// filtering
+statusFilter.addEventListener("change", () => {
+  const selectedFilter = statusFilter.value;
+  let filteredTaskList = initialTaskList.slice();
+
+  if (selectedFilter !== "all") {
+    filteredTaskList = filteredTaskList.filter(
+      (task) => task.status === selectedFilter
+    );
+  }
+
+  updateTaskList(filteredTaskList);
+});
 
 updateTaskList(initialTaskList);
