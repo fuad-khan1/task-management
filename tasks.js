@@ -56,7 +56,7 @@ createTaskForm.addEventListener("submit", (e) => {
 function updateTaskList(tasks) {
   const tableBody = document.querySelector("#taskList tbody");
   tableBody.innerHTML = "";
-  tasks.forEach((task, index) => {
+  tasks.forEach((task) => {
     const taskRow = document.createElement("tr");
     taskRow.className = "border-b";
 
@@ -81,26 +81,23 @@ function updateTaskList(tasks) {
     assigneeData.className = "p-2 border-r";
 
     const statusData = document.createElement("td");
-    statusData.className = "p-2 border-r";
+    statusData.className = "border-r";
     statusData.innerHTML = task.status;
 
-        // --- Check-Box ---  // 
+    // --- Check-Box ---  //
     const statusCheckbox = document.createElement("input");
-    statusCheckbox.className="ml-3"
+    statusCheckbox.className = "ml-2";
     statusCheckbox.type = "checkbox";
     statusCheckbox.checked = task.status === "completed";
     statusCheckbox.addEventListener("change", () => {
-      if (statusCheckbox.checked) {
-        task.status = "completed";
-        statusData.innerHTML = "completed";
-      } else {
-        task.status = "pending";
-        statusData.innerHTML = "pending";
-      }
-      localStorage.setItem("taskList", JSON.stringify(tasks));
-    });
-    statusData.appendChild(statusCheckbox);
+      task.status = statusCheckbox.checked ? "completed" : "pending";
+      statusData.innerHTML = task.status;
 
+      localStorage.setItem("taskList", JSON.stringify(tasks));
+      updateTaskList(tasks);
+    });
+
+    statusData.appendChild(statusCheckbox);
 
     taskRow.appendChild(titleData);
     taskRow.appendChild(descriptionData);
