@@ -15,29 +15,33 @@
     <nav class="bg-blue-500 p-4 w-full">
       <div class="container mx-auto flex justify-between items-center">
         <div class="flex items-center">
-          <h1 class="text-2xl text-white font-semibold mr-4">Task</h1>
+          <h1 class="text-2xl text-white font-semibold mr-4"><a href="tasks.html">Task</a></h1>
         </div>
         <div class="relative flex items-center space-x-4">
-          <!-- <img src="assets/profile.jpg" alt="Profile picture" class="w-16 h-16 rounded-full" /> -->
+          <img src="assets/profile.jpg" alt="Profile picture" class="w-14 h-14 rounded-full" />
 
           <div class="text-white">
-            <!-- <h3 class="font-semibold" id="userName">John Doe</h3>
-            <p class="text-sm">Web Developer</p> -->
+            <h3 class="font-semibold" id="userName">John Doe</h3>
+            <p class="text-sm">Web Developer</p>
           </div>
 
-          <div class="relative group">
+          <div class="relative group ">
 
 
-            <div class="cursor-pointer group-hover:rotate-180  transition duration-300 text-white">
-              <i class="fa-solid fa-caret-down text-2xl    "></i>
-            </div>
+            <button class="">
+
+              <i
+                class="fa-solid fa-bars text-2xl text-white cursor-pointer group-hover:rotate-180 transition duration-500"></i>
+            </button>
 
 
             <ul
-              class="w-36  absolute hidden text-center right-0 mt-2 space-y-2 bg-white text-blue-500 group-hover:block rounded shadow">
-              <li><a href="profile.html" class="block p-2 hover:bg-blue-100 ">Profile</a></li>
-              <li><button id="logoutLink" class="block w-full  p-2 hover:bg-blue-100 ">Log out</button></li>
+              class="w-44  absolute hidden text-center right-0     bg-white text-blue-500 group-hover:block rounded shadow-lg">
+              <li><a href="profile.html" class="block px-4 py-2 hover:bg-blue-100 ">Profile</a></li>
+              <li><button id="logoutLink" class="block w-full text-red-400  px-4 py-2 hover:bg-blue-100 ">Log
+                  out</button></li>
             </ul>
+
           </div>
 
         </div>
