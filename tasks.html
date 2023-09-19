@@ -1,144 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tasks</title>
-    <!--  Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-  </head>
 
-  <body class="bg-gray-100">
-    <header>
-      <nav class="bg-blue-500 p-4">
-        <div class="container mx-auto flex justify-between items-center">
-          <div class="flex items-center">
-            <h1 class="text-2xl text-white font-semibold mr-4">Task</h1>
-            <a href="profile.html" class="text-white hover:underline"
-              >Profile</a
-            >
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tasks</title>
+  <!--  Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+</head>
+
+<body class="">
+  <header>
+    <nav class="bg-blue-500 p-4 w-full">
+      <div class="container mx-auto flex justify-between items-center">
+        <div class="flex items-center">
+          <h1 class="text-2xl text-white font-semibold mr-4">Task</h1>
+        </div>
+        <div class="relative flex items-center space-x-4">
+          <!-- <img src="assets/profile.jpg" alt="Profile picture" class="w-16 h-16 rounded-full" /> -->
+
+          <div class="text-white">
+            <!-- <h3 class="font-semibold" id="userName">John Doe</h3>
+            <p class="text-sm">Web Developer</p> -->
           </div>
-          <div class="flex items-center space-x-4">
-            <img
-              src="assets/profile.jpg"
-              alt="Profile picture"
-              class="w-16 h-16 rounded-full"
-            />
 
-            <div class="text-white">
-              <h3 class="font-semibold" id="userName">John Doe</h3>
-              <p class="text-sm">Web Developer</p>
+          <div class="relative group">
+
+
+            <div class="cursor-pointer group-hover:rotate-180  transition duration-300 text-white">
+              <i class="fa-solid fa-caret-down text-2xl    "></i>
             </div>
 
-            <button
-              id="logoutLink"
-              class="text-white border border-white px-2 py-1 rounded hover:bg-white hover:text-blue-500 font-semibold transition duration-300"
-            >
-              Logout
-            </button>
-          </div>
-        </div>
-      </nav>
-    </header>
 
-    <main class="mx-auto container flex flex-col md:flex-row mt-2 space-x-2">
-      <!-- Create Task Section -->
-      <section class="bg-white p-8 rounded mb-8">
-        <h2 class="text-xl font-semibold mb-4">Create Task</h2>
-        <form id="createTaskForm">
-          <div class="mb-4">
-            <label for="taskTitle" class="block text-gray-600"
-              >Task Title:</label
-            >
-            <input
-              type="text"
-              id="taskTitle"
-              name="taskTitle"
-              class="border rounded w-full p-2"
-              required
-            />
+            <ul
+              class="w-36  absolute hidden text-center right-0 mt-2 space-y-2 bg-white text-blue-500 group-hover:block rounded shadow">
+              <li><a href="profile.html" class="block p-2 hover:bg-blue-100 ">Profile</a></li>
+              <li><button id="logoutLink" class="block w-full  p-2 hover:bg-blue-100 ">Log out</button></li>
+            </ul>
           </div>
-          <div class="mb-4">
-            <label for="taskDescription" class="block text-gray-600"
-              >Task Description:</label
-            >
-            <textarea
-              id="taskDescription"
-              name="taskDescription"
-              class="border rounded w-full p-2"
-              required
-            ></textarea>
+
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class=" mx-auto container mt-3 ">
+    <!-- Create Task Section -->
+    <section class=" p-4 border rounded ">
+      <h2 class="text-xl font-semibold mb-2">Create Task</h2>
+      <form id="createTaskForm">
+        <div class="flex flex-wrap gap-4 items-center">
+          <div>
+            <label for="taskTitle" class="text-gray-600">Task Title:</label>
+            <br>
+
+            <input type="text" id="taskTitle" name="taskTitle" placeholder="Task Title" class="border rounded  p-1"
+              required />
           </div>
-          <div class="mb-4">
-            <label for="dueDate" class="block text-gray-600">Due Date:</label>
-            <input type="date" id="dueDate" name="dueDate" required />
+
+          <div>
+            <label for="taskDescription" class="text-gray-600">Task Description:</label>
+            <br>
+            <input id="taskDescription" name="taskDescription" placeholder="Task Description"
+              class="border rounded  p-1" required></input>
           </div>
-          <div class="mb-4">
-            <label for="taskPriority" class="block text-gray-600"
-              >Priority:</label
-            >
-            <select id="taskPriority" name="priority">
+          <div>
+            <label for="dueDate" class="text-gray-600">Due Date:</label>
+            <br>
+            <input type="date" id="dueDate" name="dueDate" class="border rounded" required />
+          </div>
+          <div>
+            <label for="taskPriority" class="text-gray-600">Priority:</label>
+            <br>
+            <select id="taskPriority" class="border rounded" name="priority">
               <option value="high">High</option>
               <option value="medium">Medium</option>
               <option value="low">Low</option>
             </select>
           </div>
-          <div class="mb-4">
-            <label for="assignee" class="block text-gray-600">Assignee:</label>
-            <input
-              type="text"
-              id="assignee"
-              class="border rounded"
-              name="assignee"
-              required
-            />
+          <div>
+            <label for="assignee" class="text-gray-600">Assignee:</label>
+            <br>
+            <input type="text" id="assignee" class="border rounded p-1" name="assignee" placeholder="Assignee"
+              required />
           </div>
-          <button
-            type="submit"
-            class="bg-blue-500 hover:bg-blue-600 text-white font-semibold px-4 py-2 rounded"
-          >
-            Create
-          </button>
-        </form>
-      </section>
 
-      <section class="bg-white p-8 rounded mb-2 w-full">
+          <button type="submit" class="bg-blue-500 hover:bg-blue-600 px-2 py-1 mt-4 rounded text-white ">
+            Add Task
+          </button>
+
+        </div>
+
+      </form>
+    </section>
+
+
+    <!--  Task Lists Section -->
+    <section class=" p-4 border rounded mt-2  ">
+      <div class="flex justify-between items-center">
         <h2 class="text-xl font-semibold mb-4">Task List</h2>
         <!--  Filtering and Sorting  -->
-        <div class="flex space-x-8 mb-4">
+        <div class="flex space-x-8">
           <div>
-            <label for="statusFilter" class="block">Filter by Status:</label>
-            <select id="statusFilter">
+            <label for="statusFilter">Filter by Status:</label>
+            <select id="statusFilter" class="border rounded">
               <option value="all">All</option>
               <option value="completed">Completed</option>
               <option value="pending">Pending</option>
             </select>
           </div>
           <div>
-            <label for="sort" class="block">Sort by:</label>
-            <select id="sort">
+            <label for="sort">Sort by:</label>
+            <select id="sort" class="border rounded">
               <option value="priority">Priority</option>
               <option value="dueDate">Due Date</option>
             </select>
           </div>
         </div>
+      </div>
 
-        <table id="taskList">
-          <thead class="bg-gray-100">
-            <tr>
-              <th class="border">Title</th>
-              <th class="border">Description</th>
-              <th class="border">Due Date</th>
-              <th class="border">Priority</th>
-              <th class="border">Assignee</th>
-              <th class="border">Status</th>
-            </tr>
-          </thead>
-          <tbody></tbody>
-        </table>
-      </section>
-    </main>
+      <table id="taskList" class="w-full text-center">
+        <thead class="bg-gray-100">
+          <tr>
+            <th class="border">Title</th>
+            <th class="border">Description</th>
+            <th class="border">Due Date</th>
+            <th class="border">Priority</th>
+            <th class="border">Assignee</th>
+            <th class="border">Status</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+  </main>
 
-    <script src="tasks.js"></script>
-  </body>
+
+  <script src="tasks.js"></script>
+</body>
+
 </html>

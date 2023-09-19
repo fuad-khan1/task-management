@@ -56,13 +56,14 @@ createTaskForm.addEventListener("submit", (e) => {
 function updateTaskList(tasks) {
   const tableBody = document.querySelector("#taskList tbody");
   tableBody.innerHTML = "";
-  tasks.forEach((task) => {
+  tasks.forEach((task, index) => {
     const taskRow = document.createElement("tr");
     taskRow.className = "border-b";
 
     const titleData = document.createElement("td");
     titleData.innerHTML = task.title;
     titleData.className = "p-2  border";
+
     const descriptionData = document.createElement("td");
     descriptionData.innerHTML = task.description;
     descriptionData.className = "p-2 border-r";
@@ -80,21 +81,26 @@ function updateTaskList(tasks) {
     assigneeData.className = "p-2 border-r";
 
     const statusData = document.createElement("td");
+    statusData.className = "p-2 border-r";
     statusData.innerHTML = task.status;
-    statusData.className = "p-2 border-r cursor-pointer";
 
-    statusData.addEventListener("click", () => {
-      if (task.status === "pending") {
+        // --- Check-Box ---  // 
+    const statusCheckbox = document.createElement("input");
+    statusCheckbox.className="ml-3"
+    statusCheckbox.type = "checkbox";
+    statusCheckbox.checked = task.status === "completed";
+    statusCheckbox.addEventListener("change", () => {
+      if (statusCheckbox.checked) {
         task.status = "completed";
-          //  &#x2713 
         statusData.innerHTML = "completed";
-      } else if (task.status === "completed") {
+      } else {
         task.status = "pending";
         statusData.innerHTML = "pending";
       }
-
       localStorage.setItem("taskList", JSON.stringify(tasks));
     });
+    statusData.appendChild(statusCheckbox);
+
 
     taskRow.appendChild(titleData);
     taskRow.appendChild(descriptionData);
@@ -107,7 +113,7 @@ function updateTaskList(tasks) {
   });
 }
 
-  //   sorting & Filtering
+//   sorting & Filtering
 const sortSelect = document.getElementById("sort");
 const statusFilter = document.getElementById("statusFilter");
 
